@@ -5,7 +5,7 @@
 month = -1
 while True:
     month = input("Введите месяц в виде целого числа от 1 до 12: ")
-    if not month.isdigit or month == '':
+    if not month.isdigit() or month == '':
         continue
 
     print(month)

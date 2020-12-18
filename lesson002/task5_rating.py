@@ -7,7 +7,7 @@ while True:
     ratingValue = input("Введите элемент рейтинга (или exit для выхода): ")
     if ratingValue == "exit":
         break
-    if not ratingValue.isdigit or ratingValue == '':
+    if not ratingValue.isdigit() or ratingValue == '':
         continue
 
     ratingValue = int(ratingValue)
