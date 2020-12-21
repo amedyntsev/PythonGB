@@ -4,5 +4,5 @@
 # Элементы списка можно не запрашивать у пользователя, а указать явно, в программе.
 
 myList = [True, 1, "test", 2.0, [1,5], (5,6), {"key1":4, "key2":9}, None, {1,2,2,3}]
-for element in myList:
-    print(type(element))
+for index, element in enumerate(myList, 1):
+    print(f"{index}) '{type(element)}' for variable: {element}")
