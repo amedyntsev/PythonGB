@@ -3,25 +3,34 @@
 # При нечетном количестве элементов последний сохранить на своем месте.
 # Для заполнения списка элементов необходимо использовать функцию input().
 
-print("Для завершения ввода элементов в список введите 'exit'")
+# print("Для завершения ввода элементов в список введите 'exit'")
 
-userList = []
-count = 0
-while True:
-    value = input(f"Введите значение в список (количество эл-в в списке: {count}): ")
-    if value == "exit":
-        break
-    else:
-        userList.append(value)
-        count += 1
+# userList = []
+# count = 0
+# while True:
+#     value = input(f"Введите значение в список (количество эл-в в списке: {count}): ")
+#     if value == "exit":
+#         break
+#     else:
+#         userList.append(value)
+#         count += 1
 
-pointer = 0
-print(f"Список до перестановки:  {userList}")
-while True:
-    tmp = userList.pop(pointer + 1)
-    userList.insert(pointer, tmp)
-    if pointer < (len(userList) - 3):
-        pointer += 2
-    else:
-        break
-print(f"Список после перестановки:  {userList}")
+# pointer = 0
+# print(f"Список до перестановки:  {userList}")
+# while True:
+#     tmp = userList.pop(pointer + 1)
+#     userList.insert(pointer, tmp)
+#     if pointer < (len(userList) - 3):
+#         pointer += 2
+#     else:
+#         break
+# print(f"Список после перестановки:  {userList}")
+
+# -------------------------------------
+
+myList = input(f"Введите значение в список через пробел: ").split()
+print(f"Введённый список: {myList}")
+
+idx = len(myList) if len(myList) % 2 == 0 else len(myList) - 1
+myList[:idx:2], myList[1:idx:2] = myList[1:idx:2], myList[:idx:2]
+print(f"Изменённый список: {myList}")
