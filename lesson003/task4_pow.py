@@ -12,7 +12,7 @@ def my_func2(x, y):
     y = int(y)
     result = x
     if y < 2:
-        return source
+        return result
     while y > 1:
         y -= 1
         result *= x

@@ -19,7 +19,7 @@ def int_func2(word):
     return (char + word[1:len(word)])
 
 print("——————————————————————————————————")
-words = input("Введите строку слов: ").split()
+words = input("Введите строку слов из латинских символов: ").split()
 
 result = ""
 for word in words:
