@@ -11,15 +11,23 @@ def my_func(x, y):
 def my_func2(x, y):
     y = int(y)
     result = x
-    if y < 2:
+    if y == 1:
         return result
-    while y > 1:
-        y -= 1
-        result *= x
+    elif y == 0:
+        return 1
+    elif y > 1:
+        while y > 1:
+            y -= 1
+            result *= x
+    elif y < 0:
+        result = 1 / x
+        while y < -1:
+            y += 1
+            result *= (1 / x)
     return result
 
 # примеры
 print(f"Func1: {my_func(14,3)}")
-print(f"Func2: {my_func2(11,4)}")
+print(f"Func2: {my_func2(2,-4)}")
 
 
