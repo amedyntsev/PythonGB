@@ -1,0 +1,7 @@
+Fizra: - 40(пр) -
+Math: 15(л) 45(пр) -
+History: 20(л) - -
+Physics: 80(л) 10(пр) 37(лаб)
+Informatics: 42(л) 11(пр) 39(лаб)
+Literature: 11(л) - 9(лаб)
+Russian: - - 91(лаб)
