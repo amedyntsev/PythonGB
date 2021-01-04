@@ -6,4 +6,30 @@
 # Создать экземпляры классов и проверить, что выведет описанный метод для каждого экземпляра.
 
 class Stationery:
-    pass
+    def __init__(self):
+        self.title = "Рисунок"
+
+    def draw(self):
+        print(f"Запуск отрисовки. {self.title}")
+
+class Pen(Stationery):
+    def draw(self):
+        print(f"Ручка. {self.title}")
+
+class Pencil(Stationery):
+    def draw(self):
+        print(f"Карандаш. {self.title}")
+
+class Handle(Stationery):
+    def draw(self):
+        print(f"Рукоятка. {self.title}")
+
+stationery = Stationery()
+pen = Pen()
+pencil = Pencil()
+handle = Handle()
+
+stationery.draw()
+pen.draw()
+pencil.draw()
+handle.draw()

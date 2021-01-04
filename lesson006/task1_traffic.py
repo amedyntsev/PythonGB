@@ -13,15 +13,16 @@
 from time import sleep
 
 class TrafficLight:
-    __color = None
+
+    def __init__(self):
+        self._color = ""
 
     def running(self):
         list_colors = [["Красный", 7], ["Жёлтый", 2], ["Зелёный", 5]]
         for color in list_colors:
-            __color = color[0]
-            print(f"Цвет светофора: {__color}")
+            self._color = color[0]
+            print(f"Цвет светофора: {self._color}")
             sleep(color[1])
-
 
 tf = TrafficLight()
 tf.running()

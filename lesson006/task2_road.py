@@ -8,7 +8,6 @@
 # Например: 20м * 5000м * 25кг * 5см = 12500 т
 
 
-# todo: переделать
 class Road:
     __length = None
     __width = None
@@ -18,8 +17,12 @@ class Road:
         self.__width = width
 
     def mass_asphalt(self, mass, depth):
-        result = self.__length * self.__width * mass * (depth / 100)
+        if mass < 1:
+            mass = 1
+        if depth < 1:
+            depth = 1
+        result = int((self.__length * self.__width * mass * depth) / 1000)
         return result
 
 road = Road(5000, 20)
-print(f"Масса асфальта: {road.mass_asphalt(25, 5)}")
+print(f"Масса асфальта: {road.mass_asphalt(25, 5)} т")

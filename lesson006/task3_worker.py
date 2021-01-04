@@ -10,5 +10,35 @@
 
 
 class Worker:
-    pass
 
+    def __init__(self, name, surname, position):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self.__income = {"wage": 0, "bonus": 0}
+
+    def set_income(self, wage, bonus):
+        self.__income["wage"] = wage
+        self.__income["bonus"] = bonus
+
+    def get_income(self):
+        return self.__income['wage'] + self.__income['bonus']
+
+class Position(Worker):
+
+    def get_full_name(self):
+        print(f"Работник: {str(self.surname)} {str(self.name)} ; Должность: {self.position}")
+
+    def get_total_income(self):
+        print(f"Доход с учётом премии: {self.get_income()}")
+
+worker1 = Position("Alex", "Turk", "Программист")
+worker1.set_income(124500, 20000)
+worker2 = Position("Anton", "Gavrilin", "Аналитик")
+worker2.set_income(117990, 30000)
+
+worker1.get_full_name()
+worker1.get_total_income()
+
+worker2.get_full_name()
+worker2.get_total_income()
