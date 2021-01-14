@@ -30,31 +30,79 @@ class Cell:
 
     @number.setter
     def number(self, number):
-        self.__number = int(number) if number.isdigit() else 1
+        self.__number = int(number) if str(number).isdigit() and int(number) > 0 else 1
 
     def __str__(self):
-        pass
+        return "*" * self.number
 
     def __add__(self, other):
         if type(other) != Cell:
             raise TypeError
-        if self.number != other.number:
-            raise ValueError
         cell_number = self.number + other.number
         return Cell(cell_number)
 
     def __sub__(self, other):
-        pass
+        if type(other) != Cell:
+            raise TypeError
+        if self.number <= other.number:
+            raise ValueError
+        cell_number = self.number - other.number
+        return Cell(cell_number)
 
     def __mul__(self, other):
-        pass
+        if type(other) != Cell:
+            raise TypeError
+        cell_number = self.number * other.number
+        return Cell(cell_number)
 
     def __floordiv__(self, other):
-        pass
+        if type(other) != Cell:
+            raise TypeError
+        if (self.number - other.number) < 1:
+            raise ValueError
+        cell_number = self.number // other.number
+        return Cell(cell_number)
 
-    def make_order(self, row):
-        pass
+    def __truediv__(self, other):
+        if type(other) != Cell:
+            raise TypeError
+        if (self.number - other.number) < 1:
+            raise ValueError
+        cell_number = self.number // other.number
+        return Cell(cell_number)
+
+    def make_order(self, split_count):
+        if split_count < 1:
+            split_count = 1
+        order = ""
+        counter = 1
+        while True:
+            if split_count * (counter - 1) > self.number:
+                break
+            row_count = split_count if self.number > split_count * counter else self.number - split_count * (counter - 1)
+            order += "*" * row_count
+            order += "\n"
+            counter += 1
+        return order
 
 
 cell_1 = Cell(12)
-cell_2 = Cell(13)
+cell_2 = Cell(16)
+
+cell_3 = cell_1 + cell_2
+print(f"sum order for new cell:\n{cell_3.make_order(5)}")
+
+cell_1.number = 15
+cell_2.number = 8
+cell_3 = cell_1 - cell_2
+print(f"sub order for new cell:\n{cell_3.make_order(3)}")
+
+cell_1.number = 7
+cell_2.number = 5
+cell_3 = cell_1 * cell_2
+print(f"multiply order for new cell:\n{cell_3.make_order(8)}")
+
+cell_1.number = 29
+cell_2.number = 3
+cell_3 = cell_1 / cell_2
+print(f"div order for new cell:\n{cell_3.make_order(4)}")
